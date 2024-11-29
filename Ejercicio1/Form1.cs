@@ -42,16 +42,16 @@ namespace Ejercicio1
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-             
-           if (e.KeyCode == Keys.Escape)
-                {
+
+            if (e.KeyCode == Keys.Escape)
+            {
                 this.Text = "Mouse Tester";
-                }
-            else
-                {
-                this.Text = e.KeyCode.ToString();
-                }
             }
+            else
+            {
+                this.Text = e.KeyCode.ToString();
+            }
+        }
 #else
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)

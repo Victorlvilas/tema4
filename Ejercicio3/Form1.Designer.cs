@@ -1,5 +1,9 @@
-﻿using System.IO;
+﻿using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using Image = System.Drawing.Image;
 
 namespace Ejercicio3
 {
@@ -31,6 +35,7 @@ namespace Ejercicio3
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -42,7 +47,7 @@ namespace Ejercicio3
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 58);
             this.button1.TabIndex = 0;
-            this.button1.Text = "imagen";
+            this.button1.Text = "nueva imagen";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -59,6 +64,7 @@ namespace Ejercicio3
             this.checkBox1.TabIndex = 1;
             this.checkBox1.Text = "modal";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Form1
             // 
@@ -67,8 +73,10 @@ namespace Ejercicio3
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Ejercicio 3";
+            this.Text = "Visor de imagenes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -79,32 +87,35 @@ namespace Ejercicio3
             var fileContent = string.Empty;
             var filePath = string.Empty;
 
+
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "c:\\";
                 openFileDialog.Filter = "JPEG files (*.jpg;*.jpeg)|*.jpg;*.jpeg|All files (*.*)|*.*";
-                openFileDialog.FilterIndex = 1;
-                openFileDialog.RestoreDirectory = true;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Get the path of specified file
+                    string nombreImagen = Path.GetFileName(openFileDialog.FileName);
+
                     filePath = openFileDialog.FileName;
 
-                    //Read the contents of the file into a stream
-                   // Image image = Image.FromFile(filePath);
+                    Image image = Image.FromFile(filePath);
 
-                    PictureBox pictureBox = this.Controls["pictureBox"] as PictureBox;
-                    if (pictureBox != null)
+                    Form2 f = new Form2(image, nombreImagen);
+
+
+                    if (checkBox1.Checked)
                     {
-                        pictureBox.Image = image;
+                        f.ShowDialog();
+                    }
+                    else
+                    {
+                        f.Show();
                     }
                 }
             }
-
-            MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
         }
-        
+
 
         #endregion
 

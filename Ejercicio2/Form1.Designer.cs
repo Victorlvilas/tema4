@@ -1,7 +1,7 @@
 ﻿namespace Ejercicio2
-    {
+{
     partial class Form1
-        {
+    {
         /// <summary>
         /// Variable del diseñador necesaria.
         /// </summary>
@@ -12,13 +12,13 @@
         /// </summary>
         /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
-            {
+        {
             if (disposing && (components != null))
-                {
+            {
                 components.Dispose();
-                }
-            base.Dispose(disposing);
             }
+            base.Dispose(disposing);
+        }
 
         #region Código generado por el Diseñador de Windows Forms
 
@@ -27,7 +27,7 @@
         /// el contenido de este método con el editor de código.
         /// </summary>
         private void InitializeComponent()
-            {
+        {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -158,7 +158,7 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
-            }
+        }
 
         #endregion
         private System.Windows.Forms.Button button1;
@@ -171,5 +171,5 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
     }
-    }
+}
 

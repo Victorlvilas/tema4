@@ -5,9 +5,9 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace Ejercicio1
-    {
+{
     partial class Form1
-        {
+    {
         /// <summary>
         /// Variable del diseñador necesaria.
         /// </summary>
@@ -18,13 +18,13 @@ namespace Ejercicio1
         /// </summary>
         /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
-            {
+        {
             if (disposing && (components != null))
-                {
+            {
                 components.Dispose();
-                }
-            base.Dispose(disposing);
             }
+            base.Dispose(disposing);
+        }
 
         #region Código generado por el Diseñador de Windows Forms
 
@@ -33,7 +33,7 @@ namespace Ejercicio1
         /// el contenido de este método con el editor de código.
         /// </summary>
         private void InitializeComponent()
-            {
+        {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -83,17 +83,17 @@ namespace Ejercicio1
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.ResumeLayout(false);
 
-            }
+        }
 
         private void CrearBotones()
-            {
+        {
             int contadorFilas = 0;
             int posX = 10;
             int posY = 10;
 
 
             for (int i = 0; i < 20; i++)
-                {
+            {
                 Button boton = new Button();
 
                 boton.Text = $" {i + 1}";
@@ -109,25 +109,25 @@ namespace Ejercicio1
 
 
                 if (contadorFilas == 4)
-                    {
+                {
                     posX = 10;
                     posY += 40;
                     contadorFilas = 0;
-                    }
+                }
                 else
-                    {
+                {
                     posX += 100;
                     contadorFilas++;
-                    }
-
-
                 }
-            }
 
-#endregion
+
+            }
+        }
+
+        #endregion
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
 
-        }
     }
+}
 
