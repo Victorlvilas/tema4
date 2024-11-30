@@ -82,9 +82,6 @@ namespace Ejercicio3
 
         }
 
-       
-
-
         #endregion
 
         private System.Windows.Forms.Button btnImagen;

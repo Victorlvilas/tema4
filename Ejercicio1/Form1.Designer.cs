@@ -81,7 +81,6 @@ namespace Ejercicio1
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
             this.ResumeLayout(false);
-
         }
 
         private void CrearBotones()
@@ -89,7 +88,6 @@ namespace Ejercicio1
             int contadorFilas = 0;
             int posX = 10;
             int posY = 10;
-
 
             for (int i = 0; i < 20; i++)
             {
@@ -106,7 +104,6 @@ namespace Ejercicio1
 
                 this.Controls.Add(boton);
 
-
                 if (contadorFilas == 4)
                 {
                     posX = 10;
@@ -118,8 +115,6 @@ namespace Ejercicio1
                     posX += 100;
                     contadorFilas++;
                 }
-
-
             }
         }
 

@@ -23,10 +23,8 @@ namespace Ejercicio1
             int mouseX = e.X;
             int mouseY = e.Y;
 
-
             this.Text = $"X: {mouseX} Y:{mouseY}";
         }
-
 
         private void Form1_MouseLeave(object sender, EventArgs e)
         {
@@ -50,7 +48,6 @@ namespace Ejercicio1
         {
 
             this.Text = ((Button)sender).Text;
-
 
         }
 
