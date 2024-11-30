@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Ejercicio2
@@ -24,56 +19,140 @@ namespace Ejercicio2
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("¿Seguro que desea salir?", "Ejercicio 2",
-MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
- == DialogResult.Cancel)
+            try
             {
-                e.Cancel = true;
-
+                if (MessageBox.Show("¿Seguro que desea salir?", "Ejercicio 2",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+                    == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se ha producido un error al intentar cerrar el formulario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.BackColor = Color.FromArgb(Int32.Parse(textBox1.Text), Int32.Parse(textBox2.Text), Int32.Parse(textBox3.Text));
+            try
+            {
+                int red = Int32.Parse(txtRgb1.Text);
+                int green = Int32.Parse(txtRgb2.Text);
+                int blue = Int32.Parse(txtRgb3.Text);
+
+                if (red < 0 || red > 255 || green < 0 || green > 255 || blue < 0 || blue > 255)
+                {
+                    throw new ArgumentOutOfRangeException("Los valores RGB deben estar entre 0 y 255.");
+                }
+
+                this.BackColor = Color.FromArgb(red, green, blue);
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Los valores introducidos no son válidos. Por favor, use números enteros.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show(ex.Message, "Error de rango", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se ha producido un error al intentar cambiar el color: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            label1.BackgroundImage = new Bitmap(textBox4.Text);
+            try
+            {
+                string imagePath = txtPath.Text;
+                if (string.IsNullOrWhiteSpace(imagePath))
+                {
+                    throw new FileNotFoundException("La ruta de la imagen no puede estar vacía.");
+                }
+
+                lblImagen.BackgroundImage = new Bitmap(imagePath);
+            }
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show(ex.Message, "Error de archivo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se ha producido un error al intentar cargar la imagen: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            foreach (Control control in this.Controls)
+            try
             {
-                if (control is TextBox)
+                foreach (Control control in this.Controls)
                 {
-                    control.Text = string.Empty;
+                    if (control is TextBox)
+                    {
+                        control.Text = string.Empty;
+                    }
                 }
+
                 this.BackColor = SystemColors.Control;
+
+                lblImagen.BackgroundImage = null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se ha producido un error al limpiar los controles: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void buttons_MouseEnter(object sender, EventArgs e)
         {
-            ((Button)sender).BackColor = Color.Chartreuse;
+            try
+            {
+                ((Button)sender).BackColor = Color.Chartreuse;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se ha producido un error al cambiar el color del botón: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttons_MouseLeave(object sender, EventArgs e)
         {
-            ((Button)sender).BackColor = SystemColors.Control;
+            try
+            {
+                ((Button)sender).BackColor = SystemColors.Control;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se ha producido un error al restaurar el color del botón: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void textBoxColor_Enter(object sender, EventArgs e)
         {
-            this.AcceptButton = button2;
+            try
+            {
+                this.AcceptButton = btnColor;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se ha producido un error al intentar establecer el botón de aceptación: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void textBoxImg_Enter(object sender, EventArgs e)
         {
-            this.AcceptButton = button3;
+            try
+            {
+                this.AcceptButton = btnPath;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se ha producido un error al intentar establecer el botón de aceptación: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
-

@@ -29,122 +29,166 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnColor = new System.Windows.Forms.Button();
+            this.txtRgb1 = new System.Windows.Forms.TextBox();
+            this.txtRgb2 = new System.Windows.Forms.TextBox();
+            this.txtRgb3 = new System.Windows.Forms.TextBox();
+            this.txtPath = new System.Windows.Forms.TextBox();
+            this.lblImagen = new System.Windows.Forms.Label();
+            this.btnPath = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.lblRgb1 = new System.Windows.Forms.Label();
+            this.lblRgb2 = new System.Windows.Forms.Label();
+            this.lblRgb3 = new System.Windows.Forms.Label();
+            this.lblPath = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // btnSalir
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(694, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Salir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
-            this.button1.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
+            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSalir.Location = new System.Drawing.Point(297, 259);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 7;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.button1_Click);
+            this.btnSalir.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
+            this.btnSalir.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
-            // button2
+            // btnColor
             // 
-            this.button2.Location = new System.Drawing.Point(196, 71);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Color";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            this.button2.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
-            this.button2.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
+            this.btnColor.Location = new System.Drawing.Point(389, 47);
+            this.btnColor.Name = "btnColor";
+            this.btnColor.Size = new System.Drawing.Size(75, 23);
+            this.btnColor.TabIndex = 3;
+            this.btnColor.Text = "Color";
+            this.btnColor.UseVisualStyleBackColor = true;
+            this.btnColor.Click += new System.EventHandler(this.button2_Click);
+            this.btnColor.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
+            this.btnColor.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
-            // textBox1
+            // txtRgb1
             // 
-            this.textBox1.Location = new System.Drawing.Point(23, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.Enter += new System.EventHandler(this.textBoxColor_Enter);
+            this.txtRgb1.Location = new System.Drawing.Point(152, 12);
+            this.txtRgb1.Name = "txtRgb1";
+            this.txtRgb1.Size = new System.Drawing.Size(100, 20);
+            this.txtRgb1.TabIndex = 0;
+            this.txtRgb1.Enter += new System.EventHandler(this.textBoxColor_Enter);
             // 
-            // textBox2
+            // txtRgb2
             // 
-            this.textBox2.Location = new System.Drawing.Point(23, 74);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 7;
-            this.textBox2.Enter += new System.EventHandler(this.textBoxColor_Enter);
+            this.txtRgb2.Location = new System.Drawing.Point(152, 50);
+            this.txtRgb2.Name = "txtRgb2";
+            this.txtRgb2.Size = new System.Drawing.Size(100, 20);
+            this.txtRgb2.TabIndex = 1;
+            this.txtRgb2.Enter += new System.EventHandler(this.textBoxColor_Enter);
             // 
-            // textBox3
+            // txtRgb3
             // 
-            this.textBox3.Location = new System.Drawing.Point(23, 119);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 9;
-            this.textBox3.Enter += new System.EventHandler(this.textBoxColor_Enter);
+            this.txtRgb3.Location = new System.Drawing.Point(152, 97);
+            this.txtRgb3.Name = "txtRgb3";
+            this.txtRgb3.Size = new System.Drawing.Size(100, 20);
+            this.txtRgb3.TabIndex = 2;
+            this.txtRgb3.Enter += new System.EventHandler(this.textBoxColor_Enter);
             // 
-            // textBox4
+            // txtPath
             // 
-            this.textBox4.Location = new System.Drawing.Point(23, 266);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(248, 20);
-            this.textBox4.TabIndex = 10;
-            this.textBox4.Enter += new System.EventHandler(this.textBoxImg_Enter);
+            this.txtPath.Location = new System.Drawing.Point(124, 154);
+            this.txtPath.Name = "txtPath";
+            this.txtPath.Size = new System.Drawing.Size(248, 20);
+            this.txtPath.TabIndex = 4;
+            this.txtPath.Enter += new System.EventHandler(this.textBoxImg_Enter);
             // 
-            // label1
+            // lblImagen
             // 
-            this.label1.Location = new System.Drawing.Point(315, 227);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(297, 214);
-            this.label1.TabIndex = 11;
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblImagen.Location = new System.Drawing.Point(472, 200);
+            this.lblImagen.Name = "lblImagen";
+            this.lblImagen.Size = new System.Drawing.Size(297, 214);
+            this.lblImagen.TabIndex = 11;
+            this.lblImagen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button3
+            // btnPath
             // 
-            this.button3.Location = new System.Drawing.Point(100, 323);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            this.button3.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
-            this.button3.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
+            this.btnPath.Location = new System.Drawing.Point(389, 151);
+            this.btnPath.Name = "btnPath";
+            this.btnPath.Size = new System.Drawing.Size(75, 23);
+            this.btnPath.TabIndex = 5;
+            this.btnPath.Text = "Imagen";
+            this.btnPath.UseVisualStyleBackColor = true;
+            this.btnPath.Click += new System.EventHandler(this.button3_Click);
+            this.btnPath.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
+            this.btnPath.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
-            // button4
+            // btnReset
             // 
-            this.button4.Location = new System.Drawing.Point(551, 152);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "reset";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            this.button4.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
-            this.button4.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
+            this.btnReset.Location = new System.Drawing.Point(124, 259);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 6;
+            this.btnReset.Text = "Restablecer";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.button4_Click);
+            this.btnReset.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
+            this.btnReset.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
+            // 
+            // lblRgb1
+            // 
+            this.lblRgb1.AutoSize = true;
+            this.lblRgb1.Location = new System.Drawing.Point(42, 19);
+            this.lblRgb1.Name = "lblRgb1";
+            this.lblRgb1.Size = new System.Drawing.Size(81, 13);
+            this.lblRgb1.TabIndex = 14;
+            this.lblRgb1.Text = "1. RGB  (0-255)";
+            // 
+            // lblRgb2
+            // 
+            this.lblRgb2.AutoSize = true;
+            this.lblRgb2.Location = new System.Drawing.Point(42, 57);
+            this.lblRgb2.Name = "lblRgb2";
+            this.lblRgb2.Size = new System.Drawing.Size(81, 13);
+            this.lblRgb2.TabIndex = 15;
+            this.lblRgb2.Text = "2. RGB  (0-255)";
+            // 
+            // lblRgb3
+            // 
+            this.lblRgb3.AutoSize = true;
+            this.lblRgb3.Location = new System.Drawing.Point(42, 104);
+            this.lblRgb3.Name = "lblRgb3";
+            this.lblRgb3.Size = new System.Drawing.Size(81, 13);
+            this.lblRgb3.TabIndex = 16;
+            this.lblRgb3.Text = "3. RGB  (0-255)";
+            // 
+            // lblPath
+            // 
+            this.lblPath.AutoSize = true;
+            this.lblPath.Location = new System.Drawing.Point(42, 156);
+            this.lblPath.Name = "lblPath";
+            this.lblPath.Size = new System.Drawing.Size(82, 13);
+            this.lblPath.TabIndex = 17;
+            this.lblPath.Text = "Ruta de imagen";
             // 
             // Form1
             // 
-            this.AcceptButton = this.button2;
+            this.AcceptButton = this.btnColor;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.button1;
+            this.CancelButton = this.btnSalir;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblPath);
+            this.Controls.Add(this.lblRgb3);
+            this.Controls.Add(this.lblRgb2);
+            this.Controls.Add(this.lblRgb1);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.btnPath);
+            this.Controls.Add(this.lblImagen);
+            this.Controls.Add(this.txtPath);
+            this.Controls.Add(this.txtRgb3);
+            this.Controls.Add(this.txtRgb2);
+            this.Controls.Add(this.txtRgb1);
+            this.Controls.Add(this.btnColor);
+            this.Controls.Add(this.btnSalir);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -161,15 +205,19 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnColor;
+        private System.Windows.Forms.TextBox txtRgb1;
+        private System.Windows.Forms.TextBox txtRgb2;
+        private System.Windows.Forms.TextBox txtRgb3;
+        private System.Windows.Forms.TextBox txtPath;
+        private System.Windows.Forms.Label lblImagen;
+        private System.Windows.Forms.Button btnPath;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Label lblRgb1;
+        private System.Windows.Forms.Label lblRgb2;
+        private System.Windows.Forms.Label lblRgb3;
+        private System.Windows.Forms.Label lblPath;
     }
 }
 

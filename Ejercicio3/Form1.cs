@@ -18,23 +18,67 @@ namespace Ejercicio3
             InitializeComponent();
         }
 
+        private void abrirImagen()
+        {
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "JPEG files (*.jpg;*.jpeg)|*.jpg;*.jpeg|PNG files (*.png)|*.png|All files (*.*)|*.*";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string nombreImagen = Path.GetFileName(openFileDialog.FileName);
+                    filePath = openFileDialog.FileName;
+
+                    try
+                    {
+                        Image image = Image.FromFile(filePath);
+
+                        Form2 f = new Form2(image, nombreImagen);
+
+                        if (chkModal.Checked)
+                        {
+                            f.ShowDialog();
+                        }
+                        else
+                        {
+                            f.Show();
+                        }
+                    }
+                    catch (OutOfMemoryException)
+                    {
+                        MessageBox.Show("El archivo seleccionado no es una imagen válida.", "Error al cargar la imagen", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+
+                }
+            }
+        }
+
+
+
+
+
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenCosas();
+            abrirImagen();
 
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
+            if (chkModal.Checked)
             {
-                checkBox1.ForeColor = Color.Red;
+                chkModal.ForeColor = Color.Red;
             }
             else
             {
-                checkBox1.ForeColor = Color.Black;
+                chkModal.ForeColor = Color.Black;
             }
         }
 

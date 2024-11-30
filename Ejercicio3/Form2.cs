@@ -25,15 +25,18 @@ namespace Ejercicio3
 
             this.Text = nombreImagen;
 
-            pictureBox1.Image = image;
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.Dock = DockStyle.Fill;
+            pbImagen.Image = image;
+            pbImagen.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbImagen.Dock = DockStyle.Fill;
+
+            this.ClientSize = new Size(image.Width, image.Height);
+        
         }
 
         private void Form2_Resize(object sender, EventArgs e)
         {
-            pictureBox1.Width = this.ClientSize.Width;
-            pictureBox1.Height = this.ClientSize.Height;
+            pbImagen.Width = this.ClientSize.Width;
+            pbImagen.Height = this.ClientSize.Height;
         }
     }
 }

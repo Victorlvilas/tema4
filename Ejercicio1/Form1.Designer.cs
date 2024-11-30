@@ -1,4 +1,4 @@
-﻿#define TECLA
+﻿//#define TECLA
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -48,7 +48,6 @@ namespace Ejercicio1
             this.button1.Tag = System.Drawing.Color.Coral;
             this.button1.Text = "izquierdo";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.buttons_Click);
             // 
             // button2
             // 
@@ -59,7 +58,6 @@ namespace Ejercicio1
             this.button2.Tag = System.Drawing.Color.Aqua;
             this.button2.Text = "derecho";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.buttons_Click);
             // 
             // Form1
             // 
@@ -73,14 +71,15 @@ namespace Ejercicio1
             this.Name = "Form1";
             this.Text = "Mouse Tester";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing_1);
-
 #if TECLA
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-#else
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);     
-#endif         
+#else         
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress_1);
+#endif
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseLeave += new System.EventHandler(this.Form1_MouseLeave);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
             this.ResumeLayout(false);
 
         }

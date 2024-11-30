@@ -1,5 +1,4 @@
-﻿#define TECLA
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,21 +23,15 @@ namespace Ejercicio1
             int mouseX = e.X;
             int mouseY = e.Y;
 
+
             this.Text = $"X: {mouseX} Y:{mouseY}";
         }
+
 
         private void Form1_MouseLeave(object sender, EventArgs e)
         {
             this.Text = "Mouse Tester";
         }
-
-        private void buttons_Click(object sender, EventArgs e)
-        {
-
-            ((Button)sender).BackColor = (Color)((Button)sender).Tag;
-        }
-
-#if TECLA
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -52,15 +45,6 @@ namespace Ejercicio1
                 this.Text = e.KeyCode.ToString();
             }
         }
-#else
-
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            this.Text = e.KeyChar.ToString();
-        }
-
-
-#endif
 
         private void Boton_Click(object sender, EventArgs e)
         {
@@ -80,9 +64,44 @@ namespace Ejercicio1
             }
         }
 
+        private void Form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                button1.BackColor = Color.Transparent;
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                button2.BackColor = Color.Transparent;
+            }
+            else
+            {
+                button1.BackColor = Color.Transparent;
+                button2.BackColor = Color.Transparent;
+            }
+        }
 
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                button1.BackColor = (Color)button1.Tag;
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                button2.BackColor = (Color)button2.Tag;
+            }
+            else
+            {
+                button1.BackColor = (Color)button1.Tag;
+                button2.BackColor = (Color)button2.Tag;
+            }
+        }
 
-
+        private void Form1_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            this.Text = e.KeyChar.ToString();
+        }
     }
 }
 
