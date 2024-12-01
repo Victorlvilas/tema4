@@ -48,6 +48,7 @@ namespace Ejercicio1
             this.button1.Tag = System.Drawing.Color.Coral;
             this.button1.Text = "izquierdo";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             // 
             // button2
             // 
@@ -58,6 +59,7 @@ namespace Ejercicio1
             this.button2.Tag = System.Drawing.Color.Aqua;
             this.button2.Text = "derecho";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             // 
             // Form1
             // 
@@ -101,6 +103,8 @@ namespace Ejercicio1
                 boton.Size = new System.Drawing.Size(100, 30);
 
                 boton.Click += new EventHandler(Boton_Click);
+
+                boton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
 
                 this.Controls.Add(boton);
 

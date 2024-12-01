@@ -20,9 +20,23 @@ namespace Ejercicio1
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            int mouseX = e.X;
-            int mouseY = e.Y;
+            int mouseX = 0;
+            int mouseY = 0;
+            Point posicion;
 
+            if (sender is Button)
+            {
+                Button boton = (Button)sender;
+                posicion = e.Location;
+
+                mouseX = e.X + posicion.X;
+                mouseY = e.Y + posicion.Y;
+            }
+            else
+            {
+                mouseX = e.X;
+                mouseY = e.Y;
+            }
             this.Text = $"X: {mouseX} Y:{mouseY}";
         }
 

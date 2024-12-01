@@ -19,18 +19,12 @@ namespace Ejercicio2
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
+
+            if (MessageBox.Show("¿Seguro que desea salir?", "Ejercicio 2",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+                == DialogResult.Cancel)
             {
-                if (MessageBox.Show("¿Seguro que desea salir?", "Ejercicio 2",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
-                    == DialogResult.Cancel)
-                {
-                    e.Cancel = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Se ha producido un error al intentar cerrar el formulario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
             }
         }
 
@@ -57,9 +51,13 @@ namespace Ejercicio2
             {
                 MessageBox.Show(ex.Message, "Error de rango", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            catch (OverflowException ex)
+            {
+                MessageBox.Show(ex.Message, "Error de desbordamiento", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Se ha producido un error al intentar cambiar el color: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Se ha producido un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -79,6 +77,11 @@ namespace Ejercicio2
             {
                 MessageBox.Show(ex.Message, "Error de archivo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Se ha producido un error de entrada/salida: " + ex.Message, "Error IO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             catch (Exception ex)
             {
                 MessageBox.Show("Se ha producido un error al intentar cargar la imagen: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -87,72 +90,46 @@ namespace Ejercicio2
 
         private void button4_Click(object sender, EventArgs e)
         {
-            try
+
+            foreach (Control control in this.Controls)
             {
-                foreach (Control control in this.Controls)
+                if (control is TextBox)
                 {
-                    if (control is TextBox)
-                    {
-                        control.Text = string.Empty;
-                    }
+                    control.Text = string.Empty;
                 }
-
-                this.BackColor = SystemColors.Control;
-
-                lblImagen.BackgroundImage = null;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Se ha producido un error al limpiar los controles: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            this.BackColor = SystemColors.Control;
+
+            lblImagen.BackgroundImage = null;
         }
+
 
         private void buttons_MouseEnter(object sender, EventArgs e)
         {
-            try
-            {
-                ((Button)sender).BackColor = Color.Chartreuse;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Se ha producido un error al cambiar el color del botón: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            ((Button)sender).BackColor = Color.Chartreuse;
+
         }
 
         private void buttons_MouseLeave(object sender, EventArgs e)
         {
-            try
-            {
-                ((Button)sender).BackColor = SystemColors.Control;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Se ha producido un error al restaurar el color del botón: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            ((Button)sender).BackColor = SystemColors.Control;
+
         }
 
         private void textBoxColor_Enter(object sender, EventArgs e)
         {
-            try
-            {
-                this.AcceptButton = btnColor;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Se ha producido un error al intentar establecer el botón de aceptación: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            this.AcceptButton = btnColor;
+
         }
 
         private void textBoxImg_Enter(object sender, EventArgs e)
         {
-            try
-            {
-                this.AcceptButton = btnPath;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Se ha producido un error al intentar establecer el botón de aceptación: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            this.AcceptButton = btnPath;
+
         }
     }
 }
